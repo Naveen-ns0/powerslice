@@ -25,7 +25,7 @@ fieldset label{margin-right:18px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
 .grid label{display:grid;gap:3px;font-size:13px;font-weight:600}
 .pw{display:flex;gap:4px}.pw input{flex:1 1 0;width:100%}
-.mine{display:none}#f.yes .mine{display:grid}
+.grid .mine{display:none}#f.yes .grid .mine{display:grid}
 button{font:12px/1.4 var(--px);background:var(--gold);color:var(--text);border:3px solid #120a2b;box-shadow:4px 4px 0 #120a2b;padding:14px 18px;cursor:pointer}
 button:disabled{opacity:.6;cursor:wait}
 button:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #120a2b}
@@ -42,3 +42,11 @@ th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #cfc7ea}
 .prose ol{padding-left:20px}
 footer{padding-bottom:40px;font-size:13px;color:#cfc4f2}
 @media (prefers-reduced-motion:reduce){.blk{animation:none}button:active{transform:none}}
+
+.addl{font-weight:600;display:block;margin-bottom:6px}
+#addCoin{width:100%;max-width:340px}
+.coin h3{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.nm{font:13px var(--ui)}
+.rm{margin-left:auto;font:13px var(--ui);padding:4px 10px;box-shadow:none;border:2px solid var(--line);background:#fff}
+.rm:active{transform:none}
+input[readonly]{background:#ece8f7}
