@@ -1,5 +1,5 @@
 
-const WORKER_URL = "";
+const WORKER_URL = "https://powerslice.naveenkumarsingh112211.workers.dev/";
 
 const COINS = [
   {id:"BTC",name:"Bitcoin",c:"#f7931a",cg:"bitcoin"},{id:"ETH",name:"Ethereum",c:"#627eea",cg:"ethereum"},
