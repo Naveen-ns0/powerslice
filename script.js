@@ -90,11 +90,11 @@ function show(d, total) {
   rows.forEach(r => { acc += r.power / total * 40; while (blocks.length < Math.round(acc)) blocks.push(r.k.c); });
   while (blocks.length < 40) blocks.push(rows[rows.length - 1].k.c);
   const cmp = d.current != null ? `<p>Your current split earns about ${usd(d.current)} per day, so the new split changes it by ${usd(d.total - d.current)} per day.</p>` : "";
-  $("out").hidden = false;
+  $("out").classList.remove("empty");
   $("out").innerHTML = `<h2>Best split</h2><p class="big">${usd(d.total)} / day</p>${cmp}
   <div class="bar" role="img" aria-label="Power split bar">${blocks.slice(0, 40).map((c, i) => `<span class="blk" style="--c:${c};animation-delay:${i * 22}ms"></span>`).join("")}</div>
   <div class="wrap"><table><thead><tr><th>Coin</th><th>Power to allot</th><th>Share</th><th>USD / day</th></tr></thead><tbody>
   ${rows.map(r => `<tr><td><span class="chip" style="--c:${r.k.c}"></span>${r.id}</td><td>${fmt(r.power)}</td><td>${(r.power / total * 100).toFixed(1)}%</td><td>${usd(r.usd)}</td></tr>`).join("")}
   </tbody></table></div><p class="hint">Estimate from the numbers you entered.</p>`;
-  $("out").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  if (!matchMedia("(min-width:900px) and (orientation:landscape)").matches) $("out").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 }
