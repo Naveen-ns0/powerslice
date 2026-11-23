@@ -50,3 +50,13 @@ footer{padding-bottom:40px;font-size:13px;color:#cfc4f2}
 .rm{margin-left:auto;font:13px var(--ui);padding:4px 10px;box-shadow:none;border:2px solid var(--line);background:#fff}
 .rm:active{transform:none}
 input[readonly]{background:#ece8f7}
+
+#out.empty{display:none}
+.prose ul{padding-left:20px}
+@media (min-width:900px) and (orientation:landscape){
+.top,main,.ad,footer{max-width:1180px}
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:start}
+#out,#out.empty{display:block;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
+}
+
+footer a{color:var(--gold)}
