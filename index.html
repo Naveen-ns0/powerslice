@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RollerCoin Power Split Calculator: Best Power Allocation for Max Profit | PowerSlice</title>
+<meta name="description" content="Free RollerCoin power split calculator. Enter your total power and each coin's price, block reward, league power and block time to see the split that earns the most USD per day.">
+<link rel="canonical" href="https://naveen-ns0.github.io/powerslice/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RollerCoin Power Split Calculator | PowerSlice">
+<meta property="og:description" content="Find the power split across BTC, ETH, DOGE, SOL, POL, LTC and BNB that earns the most USD per day. Free, no login.">
+<meta property="og:url" content="https://naveen-ns0.github.io/powerslice/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RollerCoin Power Split Calculator | PowerSlice">
+<meta name="twitter:description" content="Find the power split that earns the most USD per day. Free, no login.">
+<link rel="preload" href="fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"PowerSlice","url":"https://naveen-ns0.github.io/powerslice/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Free calculator that splits your RollerCoin mining power across coins for the highest USD per day.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does PowerSlice find the best power split?","acceptedAnswer":{"@type":"Answer","text":"It treats each coin as a separate reward pool. Your share of a coin is your power divided by the league power, so every extra bit of power on one coin earns a little less than the one before. PowerSlice spreads your power until no move between coins can earn more."}},
+{"@type":"Question","name":"Do I need to fill in every coin?","acceptedAnswer":{"@type":"Answer","text":"No. Leave a coin empty and it is skipped. Only coins with price, block reward, league power and block time filled in are included."}},
+{"@type":"Question","name":"What if I already have power on some coins?","acceptedAnswer":{"@type":"Answer","text":"Choose Yes under the allotted power question and enter how much power you have on each coin. PowerSlice subtracts it from the league power to find what other players hold, then plans your whole power again from scratch."}},
+{"@type":"Question","name":"Does PowerSlice use live prices or live league data?","acceptedAnswer":{"@type":"Answer","text":"No. You type in the numbers from your game screen and a coin price source, so check them before you rely on the result. Rewards and league rules can change."}},
+{"@type":"Question","name":"Do I need to log in, and is PowerSlice official?","acceptedAnswer":{"@type":"Answer","text":"No login is needed and the numbers are used only to calculate your result. PowerSlice is an independent fan-made tool and is not affiliated with RollerCoin."}}
+]}
+</script>
+</head>
+<body>
+<header class="top">
+  <p class="brand">PowerSlice</p>
+  <h1>RollerCoin Power Split Calculator</h1>
+  <p class="lead">Slice your total power across coins and see the split that earns the most USD per day.</p>
+</header>
+<div class="ad" aria-label="Advertisement">ad space</div>
+<main>
+<section class="panel" id="tool">
+  <form id="f" novalidate>
+    <h2>Your power</h2>
+    <div class="row">
+      <label for="total">Total power available</label>
+      <input id="total" type="number" min="0" step="any" inputmode="decimal">
+      <select id="totalUnit" aria-label="Unit for total power"><option>Gh/s</option><option selected>Th/s</option><option>Ph/s</option><option>Eh/s</option></select>
+    </div>
+    <fieldset class="toggle">
+      <legend>Is any of your power already allotted to the coins below?</legend>
+      <label><input type="radio" name="has" value="no" checked> No</label>
+      <label><input type="radio" name="has" value="yes"> Yes</label>
+      <p class="hint">If yes, each coin asks how much power you have on it. If no, the league power you enter is treated as other players only.</p>
+    </fieldset>
+    <h2>Coins</h2>
+    <p class="hint">Fill in all four numbers for a coin to include it. Leave a coin empty to skip it.</p>
+    <div id="coins"></div>
+    <button type="submit" id="go">Calculate best split</button>
+    <p id="err" role="alert"></p>
+  </form>
+</section>
+<section class="panel" id="out" hidden aria-live="polite"></section>
+<div class="ad" aria-label="Advertisement">ad space</div>
+<section class="panel prose">
+  <h2>How to use PowerSlice</h2>
+  <ol>
+    <li>Enter your total power and pick its unit.</li>
+    <li>Say whether some power is already on these coins.</li>
+    <li>For each coin you mine, enter its price in USD, block reward, league power and block time in seconds.</li>
+    <li>Press Calculate to see how much power each coin should get.</li>
+  </ol>
+</section>
+<section class="panel prose" id="faq">
+  <h2>Frequently asked questions</h2>
+  <h3>How does PowerSlice find the best power split?</h3>
+  <p>It treats each coin as a separate reward pool. Your share of a coin is your power divided by the league power, so every extra bit of power on one coin earns a little less than the one before. PowerSlice spreads your power until no move between coins can earn more.</p>
+  <h3>Do I need to fill in every coin?</h3>
+  <p>No. Leave a coin empty and it is skipped. Only coins with price, block reward, league power and block time filled in are included.</p>
+  <h3>What if I already have power on some coins?</h3>
+  <p>Choose Yes under the allotted power question and enter how much power you have on each coin. PowerSlice subtracts it from the league power to find what other players hold, then plans your whole power again from scratch.</p>
+  <h3>Does PowerSlice use live prices or live league data?</h3>
+  <p>No. You type in the numbers from your game screen and a coin price source, so check them before you rely on the result. Rewards and league rules can change.</p>
+  <h3>Do I need to log in, and is PowerSlice official?</h3>
+  <p>No login is needed and the numbers are used only to calculate your result. PowerSlice is an independent fan-made tool and is not affiliated with RollerCoin.</p>
+</section>
+</main>
+<footer>
+  <p>PowerSlice is an independent, fan-made tool. It is not affiliated with, endorsed by or connected to RollerCoin or its owners. RollerCoin is a trademark of its respective owner. Results are estimates based on the numbers you enter.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
